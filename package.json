@@ -1,5 +1,5 @@
 {
-  "name": "final-js",
+  "name": "final",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,10 +9,40 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.5",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
+    "tailwindcss": "^4.1.5",
     "vite": "^6.3.1"
-  }
+  },
+  "main": "index.js",
+  "dependencies": {
+    "browserslist": "^4.24.4",
+    "caniuse-lite": "^1.0.30001715",
+    "detect-libc": "^2.0.4",
+    "electron-to-chromium": "^1.5.144",
+    "enhanced-resolve": "^5.18.1",
+    "esbuild": "^0.25.3",
+    "escalade": "^3.2.0",
+    "fdir": "^6.4.4",
+    "fraction.js": "^4.3.7",
+    "graceful-fs": "^4.2.11",
+    "jiti": "^2.4.2",
+    "lightningcss": "^1.29.2",
+    "lightningcss-win32-x64-msvc": "^1.29.2",
+    "nanoid": "^3.3.11",
+    "node-releases": "^2.0.19",
+    "normalize-range": "^0.1.2",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.2",
+    "postcss-value-parser": "^4.2.0",
+    "rollup": "^4.40.1",
+    "source-map-js": "^1.2.1",
+    "tapable": "^2.2.1",
+    "tinyglobby": "^0.2.13",
+    "update-browserslist-db": "^1.1.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
