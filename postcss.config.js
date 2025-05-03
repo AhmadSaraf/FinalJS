@@ -1,7 +1,7 @@
-const { plugins } = require("postcss");
-
-module.exports = {
-  plugins: [
-    require('tailwindcss')
-  ]
-}
+// const { plugins } = require("postcss");
+//
+// module.exports = {
+//   plugins: [
+//     require('tailwindcss')
+//   ]
+// }
