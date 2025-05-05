@@ -16,7 +16,4 @@ const addHandlerToggleSidebar = function () {
   );
 };
 
-const init = function () {
-  addHandlerToggleSidebar();
-};
-init();
+addHandlerToggleSidebar();
