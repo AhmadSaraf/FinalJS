@@ -1,2 +1,3 @@
 import * as model from "./model";
-import "./views/mobileToggleMenu";
+import "./views/sidebarToggleView";
+import "./views/themeToggleView";

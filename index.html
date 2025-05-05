@@ -57,7 +57,7 @@
     <!------------------------------>
     <aside
       id="sidebar"
-      class="md:shadow-sideShadow text-sidebar bg-bg-card absolute top-0 right-0 z-2 flex h-dvh w-75/100 translate-x-full flex-col p-3 transition-transform duration-500 ease-in-out md:static md:m-5 md:min-h-(--sidebar-height) md:w-1/5 md:min-w-72 md:translate-x-0 md:rounded-2xl"
+      class="md:shadow-sideShadow text-sidebar bg-bg-card absolute top-0 right-0 z-2 flex h-dvh w-75/100 translate-x-full flex-col p-3 transition-transform duration-500 ease-in-out md:static md:m-5 md:h-min md:min-h-(--sidebar-height) md:w-1/5 md:min-w-72 md:translate-x-0 md:rounded-2xl"
     >
       <header>
         <!-- moblile header -->
@@ -90,7 +90,7 @@
           </div>
         </div>
       </header>
-      <main>
+      <main class="flex grow flex-col gap-7">
         <ul class="mb-6 flex flex-col gap-6">
           <li>
             <a
@@ -193,12 +193,13 @@
             </a>
           </li>
         </ul>
-        <div class="mx-5 mt-auto mb-[35px]">
+        <div class="mx-5 mt-auto mb-5">
+          <!-- dark\light buttons -->
           <div
-            class="mb-7 flex gap-2 rounded-lg bg-[#F7F7F7] p-2 dark:bg-[#0C1B31]"
+            class="relative mb-7 grid grid-cols-2 gap-2 rounded-lg bg-[#F7F7F7] p-2 dark:bg-[#0C1B31]"
           >
             <button
-              class="text-buttonlight flex grow cursor-pointer justify-center gap-3 rounded-md bg-white py-1.5 dark:bg-transparent"
+              class="text-buttonlight theme-toggle z-20 flex cursor-pointer justify-center gap-3 py-1.5"
             >
               <!-- prettier-ignore -->
               <svg class="stroke-buttonlight fill-none w-4 h-4"  viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -211,24 +212,33 @@
               <span class="text-base/tight">روشن</span>
             </button>
             <button
-              class="text-buttondark flex grow cursor-pointer justify-center gap-3 rounded-md py-1.5 dark:bg-[#002247]"
+              class="text-buttondark theme-toggle z-20 flex cursor-pointer justify-center gap-3 py-1.5"
             >
               <!-- prettier-ignore -->
               <svg class="stroke-buttondark fill-none w-4 h-4 stroke-1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" >
               <path id="Vector" d="M7.99 14.66C10.45 14.76 12.65 13.62 13.97 11.81C14.52 11.07 14.22 10.58 13.31 10.74C12.86 10.82 12.4 10.86 11.92 10.84C8.66 10.7 6 7.97 5.98 4.76C5.98 3.89 6.16 3.07 6.48 2.32C6.84 1.5 6.41 1.1 5.58 1.45C2.94 2.57 1.13 5.23 1.35 8.28C1.59 11.71 4.5 14.5 7.99 14.66Z"  stroke-linejoin="round"/>
-            </svg>
+              </svg>
               <span class="text-base/tight">تاریک</span>
             </button>
+            <div
+              class="absolute top-0 right-0 h-full w-1/2 p-1 transition-transform duration-500 ease-in-out dark:-translate-x-full"
+            >
+              <div
+                class="z-10 h-full rounded-md bg-white transition-colors duration-500 ease-in-out dark:bg-[#002247]"
+              ></div>
+            </div>
           </div>
+          <!-- seperator -->
           <div class="mb-5 h-0.5 w-full bg-[#F5F6F8] dark:bg-[#2F3132]"></div>
-
+          <!-- log out -->
           <a class="flex items-center gap-4 py-2" href="#">
             <!-- prettier-ignore -->
             <svg class="stroke-sidebar fill-none w-5 h-5 stroke-[1.25]" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" >
-            <path id="Vector" d="M7.41 6.29C7.67 3.29 9.21 2.07 12.59 2.07L12.7 2.07C16.42 2.07 17.91 3.56 17.91 7.29L17.91 12.72C17.91 16.45 16.42 17.94 12.7 17.94L12.59 17.94C9.24 17.94 7.7 16.73 7.42 13.78"  stroke-linejoin="round" stroke-linecap="round"/>
-            <path id="Vector" d="M12.5 10L3.01 10" stroke-linejoin="round" stroke-linecap="round"/>
-            <path id="Vector" d="M4.87 7.2L2.08 10L4.87 12.79" stroke-linejoin="round" stroke-linecap="round"/>
-          </svg>
+              <path id="Vector" d="M7.41 6.29C7.67 3.29 9.21 2.07 12.59 2.07L12.7 2.07C16.42 2.07 17.91 3.56 17.91 7.29L17.91 12.72C17.91 16.45 16.42 17.94 12.7 17.94L12.59 17.94C9.24 17.94 7.7 16.73 7.42 13.78"  stroke-linejoin="round" stroke-linecap="round"/>
+              <path id="Vector" d="M12.5 10L3.01 10" stroke-linejoin="round" stroke-linecap="round"/>
+              <path id="Vector" d="M4.87 7.2L2.08 10L4.87 12.79" stroke-linejoin="round" stroke-linecap="round"/>
+            </svg>
+
             <span class="text-base/tight">خروج</span>
           </a>
         </div>
