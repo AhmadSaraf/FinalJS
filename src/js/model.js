@@ -1,28 +1,7 @@
+import { random } from "nanoid";
+
 export const state = {
-  tasks: [
-    // TODO: remove test data later TEST DATA
-    {
-      id: 1234,
-      title: "test",
-      description: "test",
-      priority: 0,
-      isDone: false,
-    },
-    {
-      id: 12345,
-      title: "test",
-      description: "test",
-      priority: 0,
-      isDone: false,
-    },
-    {
-      id: 123456,
-      title: "test",
-      description: "test",
-      priority: 0,
-      isDone: false,
-    },
-  ],
+  tasks: [],
   editingTask: null,
 };
 
@@ -30,16 +9,10 @@ export const state = {
 localStorage.clear();
 localStorage.setItem("tasks", JSON.stringify(state.tasks));
 
-const creatTaskObj = function (title, description, priority) {
-  return {
-    id: crypto.randomUUID(),
-    title,
-    description,
-    priority,
-    isDone: false,
-  };
-};
-
+export function addNewTask(task) {
+  state.tasks.push({ ...task, id: crypto.randomUUID(), isDone: false });
+  persistTasks()
+}
 export const findEditTaskObj = function (id) {
   try {
     state.editingTask = state.tasks.find((task) => task.id === id);
