@@ -40,7 +40,7 @@ const editRemoveHide = () => {
   [...btnToggles].forEach((toggle) => (toggle.style.display = "none"));
 };
 
-function taskHtmlBuilder(task) {
+export function taskMarkup(task) {
   let priorityBadge = "";
   if (task.priority === 1) {
     priorityBadge =

@@ -26,7 +26,7 @@ function controllSubmitEdit(editTask, data, target) {
 }
 function controlAddTask(task) {
   model.addNewTask(task);
-  activeTasksUpdateUI();
+  activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
 }
 
 function init() {
