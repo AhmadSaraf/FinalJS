@@ -29,8 +29,19 @@ function controlAddTask(task) {
   activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
 }
 
+function controlUpdateIsDone(id) {
+  model.taskToggleDone(id);
+  console.log(model.state.tasks);
+  activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
+  // doneTaskView.updateUI(model.state.tasks);
+}
+
 function init() {
-  activeTaskVeiw.addHandlerActiveTasks(controllDeleteTask, controllEditTask);
+  activeTaskVeiw.addHandlerActiveTasks(
+    controllDeleteTask,
+    controllEditTask,
+    controlUpdateIsDone,
+  );
   addTask(controlAddTask);
 }
 init();
