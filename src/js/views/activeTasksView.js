@@ -55,14 +55,24 @@ const editRemoveHide = () => {
 };
 
 function taskHtmlBuilder(task) {
-  console.log(task);
+  let priorityBadge = "";
+  if (task.priority === 1) {
+    priorityBadge =
+      '<span class="bg-bg-redbox px-2 py-0.5 rounded text-red text-xs">بالا</span>';
+  } else if (task.priority === 2) {
+    priorityBadge =
+      '<span class="bg-bg-yellowbox px-2 py-0.5 rounded text-yellow text-xs">متوسط</span>';
+  } else if (task.priority === 3) {
+    priorityBadge =
+      '<span class="bg-bg-greenbox px-2 py-0.5 rounded text-green text-xs">پایین</span>';
+  }
   return `<li data-id="${task.id}" class="active-list-item relative flex justify-between items-start bg-bg-card p-4 card-border rounded-xl">
           <div class="flex-1 py-3 pr-4 text-right">
             <div class="flex items-center gap-2 text-right">
               <input type="checkbox" class="self-start ml-2 checkbox-border rounded-[5px] w-5 h-5">
               <div>
                 <span class="block md:inline pl-2 font-bold text-heading text-sm">${task.title}</span>
-                <span class="bg-bg-redbox px-2 py-0.5 rounded text-red text-xs">${task.priority === 0 ? "پایین" : task.priority === 1 ? "متوسط" : "بالا"}</span>
+              ${priorityBadge}
                 <p class="mt-3 text-taskGray text-sm">${task.description}</p>
               </div>
             </div>

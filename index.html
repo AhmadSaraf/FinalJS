@@ -283,25 +283,25 @@
         <div id="input-container" class="card-border border-b">
           <div id="inputs" class="p-4">
             <input type="text" id="task-title" placeholder="نام تسک"
-              class="mb-2 w-full placeholder:font-bold placeholder:text-boldGray placeholder:text-base">
+              class="mb-2 w-full placeholder:font-bold placeholder:text-boldGray placeholder:text-base" required>
             <input type="text" id="task-description" placeholder="توضیحات"
-              class="w-full placeholder:font-semibold placeholder:text-lightGary placeholder:text-sm">
+              class="w-full placeholder:font-semibold placeholder:text-lightGary placeholder:text-sm" required>
           </div>
           <button id="tags-menu" type="button"
             class="justify-center items-center box-shadow m-4 px-2 py-1 card-border rounded-sm text-buttontag text-center"><img
               src="./public/icons/Vector.svg" alt="tag-right" class="inline"> تگ ها</button>
           <div id="tag-btns-container" class="hidden gap-4 bg-bg-tagbtn btn-shadow m-4 p-2 btn-border rounded-lg w-fit">
-            <button><span class="bg-bg-greenbox px-2 py-0.5 rounded font-bold text-green text-xs">پایین</span></button>
+            <span id="lowPriority" class="bg-bg-greenbox px-2 py-0.5 rounded font-bold text-green text-xs">پایین</span>
             <img src="./public/icons/Line 485.svg" alt="line">
-            <button><span
-                class="bg-bg-yellowbox px-2 py-0.5 rounded font-bold text-yellow text-xs">متوسط</span></button>
+            <span id="mediumPriority"
+              class="bg-bg-yellowbox px-2 py-0.5 rounded font-bold text-yellow text-xs">متوسط</span>
             <img src="./public/icons/Line 485.svg" alt="line">
-            <button><span class="bg-bg-redbox px-2 py-0.5 rounded font-bold text-red text-xs">بالا</span></button>
+            <span id="highPriority" class="bg-bg-redbox px-2 py-0.5 rounded font-bold text-red text-xs">بالا</span>
           </div>
         </div>
         <div class="m-4 text-left">
-          <button id="addTaskBtn" type="submit"
-            class="bg-button-blue px-4 py-2.5 rounded-md font-semibold text-white text-sm">اضافه کردن تسک</button>
+          <button id="addTaskBtn" class="bg-button-blue px-4 py-2.5 rounded-md font-semibold text-white text-sm">اضافه
+            کردن تسک</button>
         </div>
       </form>
 
@@ -315,8 +315,8 @@
 
           <!-- Template Task list -->
 
-          
-        
+
+
 
 
         </ul>
