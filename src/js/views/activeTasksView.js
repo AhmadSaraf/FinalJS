@@ -1,4 +1,5 @@
 const activeList = document.getElementById("active-tasks-list");
+
 export function addHandlerActiveTasks(deleteHandler, editHnadler, doneHandler) {
   activeList.addEventListener("click", function (e) {
     const target = e.target.closest(".active-list-item");
@@ -6,13 +7,13 @@ export function addHandlerActiveTasks(deleteHandler, editHnadler, doneHandler) {
     editRemoveHide();
 
     if (e.target.closest(".remove")) {
-      deleteHandler(+target.dataset.id);
+      deleteHandler(target.dataset.id);
     }
     if (e.target.closest(".done")) {
-      doneHandler(+target.dataset.id);
+      doneHandler(target.dataset.id);
     }
     if (e.target.closest(".edit")) {
-      editHnadler(+target.dataset.id, target);
+      editHnadler(target.dataset.id, target);
     }
     if (e.target.closest(".edit-remove-toggle")) {
       editRemoveToggle(target);

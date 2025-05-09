@@ -14,6 +14,7 @@ export function loadEditForm(editTask, target, submitHandler) {
     if (btn) {
       priority = +btn.dataset.priority;
       priorityContainerToggle(target);
+      console.log(priority);
       changePriorityUI(target, priority);
     }
   });
@@ -40,9 +41,9 @@ function priorityContainerToggle(target) {
 function changePriorityUI(target, priority) {
   console.log(priority);
   target.querySelector(".tags-menu").innerHTML =
-    `${priority === 0 ? '<div class="cursor-pointer" data-priority="0" ><span data-id="0" class="bg-bg-greenbox px-2 py-0.5 rounded font-bold text-green text-xs">پایین</span></div>' : ""}
-    ${priority === 1 ? '<div class="cursor-pointer" data-priority="1" ><span class="bg-bg-yellowbox px-2 py-0.5 rounded font-bold text-yellow text-xs">متوسط</span></div>' : ""}
-    ${priority === 2 ? '<div class="cursor-pointer" data-priority="2" ><span class="bg-bg-redbox px-2 py-0.5 rounded font-bold text-red text-xs">بالا</span></div>' : ""}
+    `${priority === 3 ? '<div class="cursor-pointer"><span class="bg-bg-greenbox px-2 py-0.5 rounded font-bold text-green text-xs">پایین</span></div>' : ""}
+    ${priority === 2 ? '<div class="cursor-pointer"><span class="bg-bg-yellowbox px-2 py-0.5 rounded font-bold text-yellow text-xs">متوسط</span></div>' : ""}
+    ${priority === 1 ? '<div class="cursor-pointer" ><span class="bg-bg-redbox px-2 py-0.5 rounded font-bold text-red text-xs">بالا</span></div>' : ""}
     
     `;
 }
@@ -63,11 +64,11 @@ function editTaskMarkup(target) {
             class="tags-menu justify-center items-center box-shadow m-4 px-2 py-1 card-border rounded-sm text-buttontag text-center cursor-pointer"><img
               src="./public/icons/Vector.svg" alt="tag-right" class="inline"> تگ ها</button>
           <div class="tag-btns-container hidden gap-4 bg-bg-tagbtn btn-shadow m-4 p-2 btn-border rounded-lg w-fit">
-            <div class="priority-btn cursor-pointer" data-priority="0" ><span data-id="0" class="bg-bg-greenbox px-2 py-0.5 rounded font-bold text-green text-xs">پایین</span></div>
+            <div class="priority-btn cursor-pointer" data-priority="3" ><span data-id="0" class="bg-bg-greenbox px-2 py-0.5 rounded font-bold text-green text-xs">پایین</span></div>
             <img src="./public/icons/Line 485.svg" alt="line">
-            <div class="priority-btn cursor-pointer" data-priority="1" ><span class="bg-bg-yellowbox px-2 py-0.5 rounded font-bold text-yellow text-xs">متوسط</span></div>
+            <div class="priority-btn cursor-pointer" data-priority="2" ><span class="bg-bg-yellowbox px-2 py-0.5 rounded font-bold text-yellow text-xs">متوسط</span></div>
             <img src="./public/icons/Line 485.svg" alt="line">
-            <div class="priority-btn cursor-pointer" data-priority="2" ><span class="bg-bg-redbox px-2 py-0.5 rounded font-bold text-red text-xs">بالا</span></div>
+            <div class="priority-btn cursor-pointer" data-priority="1" ><span class="bg-bg-redbox px-2 py-0.5 rounded font-bold text-red text-xs">بالا</span></div>
           </div>
         </div>
         <div class="m-4 text-left">
