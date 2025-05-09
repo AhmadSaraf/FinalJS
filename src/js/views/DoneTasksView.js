@@ -1,40 +1,26 @@
 import { addHandlerTasks } from "./addHandlerTasks";
 // import { tasksUpdateUI } from "./TasksUpdateUI";
 
-const activeList = document.getElementById("active-tasks-list");
-export function addHandlerActiveTasks(deleteHandler, editHandler, doneHandler) {
-  addHandlerTasks(activeList, deleteHandler, editHandler, doneHandler);
+const doneList = document.getElementById("done-tasks-list");
+export function addHandlerDoneTasks(deleteHandler, editHandler, doneHandler) {
+  addHandlerTasks(doneList, deleteHandler, editHandler, doneHandler);
 };
 
-export function activeTasksUpdateUI(tasks) {
-  activeList.innerHTML = "";
+export function doneTasksUpdateUI(tasks) {
+  doneList.innerHTML = "";
   tasks.forEach((task) =>
     document
-      .getElementById("active-tasks-list")
-      .insertAdjacentHTML("beforeend", taskMarkup(task)),
+      .getElementById("done-tasks-list")
+      .insertAdjacentHTML("afterbegin", taskMarkup(task)),
   );
 }
-
 export function taskMarkup(task) {
-  let priorityBadge = "";
-  if (task.priority === 1) {
-    priorityBadge =
-      '<span class="bg-bg-redbox px-2 py-0.5 rounded text-red text-xs">بالا</span>';
-  } else if (task.priority === 2) {
-    priorityBadge =
-      '<span class="bg-bg-yellowbox px-2 py-0.5 rounded text-yellow text-xs">متوسط</span>';
-  } else if (task.priority === 3) {
-    priorityBadge =
-      '<span class="bg-bg-greenbox px-2 py-0.5 rounded text-green text-xs">پایین</span>';
-  }
   return `<li data-id="${task.id}" class="list-items relative flex justify-between items-start bg-bg-card p-4 card-border rounded-xl">
           <div class="flex-1 py-3 pr-4 text-right">
             <div class="flex items-center gap-2 text-right">
-              <input type="checkbox" class="isDone self-start ml-2 checkbox-border rounded-[5px] w-5 h-5">
+              <input type="checkbox" checked class="isDone self-start ml-2 checkbox-border rounded-[5px] w-5 h-5">
               <div>
                 <span class="block md:inline pl-2 font-bold text-heading text-sm">${task.title}</span>
-              ${priorityBadge}
-                <p class="mt-3 text-taskGray text-sm">${task.description}</p>
               </div>
             </div>
           </div>
@@ -50,8 +36,6 @@ export function taskMarkup(task) {
             <div
               class="edit-remove-container hidden justify-center items-center gap-2 btn-shadow p-1 btn-border rounded-lg">
               <button class="remove"><img src="./public/icons/tabler_trash-x.svg" alt="trash"></button>
-              <img src="./public/icons/Line 485.svg" alt="line">
-              <button class="edit"><img src="./public/icons/tabler_edit.svg" alt="edit"></button>
             </div>
 
           </div>
