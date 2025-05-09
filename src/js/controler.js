@@ -1,18 +1,21 @@
 import * as model from "./model";
 import "./views/sidebarToggleView";
 import "./views/themeToggleView";
-import "./views/editRemoveToggleView";
+// import "./views/editRemoveToggleView";
 import "./views/TagsToggle";
 import "./views/AddingTaskToggleView";
-import * as activeTaskVeiw from "./views/activeTasksView";
+import * as activeTasksVeiw from "./views/activeTasksView";
+import * as doneTasksView from "./views/DoneTasksView";
 import * as editTaskView from "./views/editTaskView";
 import { addTask } from "./views/AddTask";
 
-activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
+activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
+doneTasksView.doneTasksUpdateUI(model.state.tasks.done);
 
 function controllDeleteTask(id) {
   model.deleteTask(id);
-  activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
+  activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
+  doneTasksView.doneTasksUpdateUI(model.state.tasks.done);
 }
 
 function controllEditTask(id, target) {
@@ -26,7 +29,14 @@ function controllSubmitEdit(editTask, data, target) {
 }
 function controlAddTask(task) {
   model.addNewTask(task);
-  activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
+  activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
+}
+
+function controlUpdateIsDone(id) {
+  model.taskToggleDone(id);
+  console.log(model.state.tasks);
+  activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
+  doneTasksView.doneTasksUpdateUI(model.state.tasks.done);
 }
 
 function controlUpdateIsDone(id) {
@@ -37,11 +47,8 @@ function controlUpdateIsDone(id) {
 }
 
 function init() {
-  activeTaskVeiw.addHandlerActiveTasks(
-    controllDeleteTask,
-    controllEditTask,
-    controlUpdateIsDone,
-  );
+  activeTasksVeiw.addHandlerActiveTasks(controllDeleteTask, controllEditTask, controlUpdateIsDone);
   addTask(controlAddTask);
+  doneTasksView.addHandlerDoneTasks(controllDeleteTask, controllEditTask , controlUpdateIsDone);
 }
 init();
