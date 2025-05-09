@@ -1,49 +1,35 @@
-import { state } from "../model";
-
 const activeList = document.getElementById("active-tasks-list");
-export function addHandlerActiveTasks(
-  removeFunction,
-  editFunction,
-  doneToggelFunction,
-) {
-  activeList.addEventListener(
-    "click",
-    tasksListCalCallback.bind({
-      removeFunction,
-      editFunction,
-      doneToggelFunction,
-    }),
-  );
+export function addHandlerActiveTasks(deleteHandler, editHnadler, doneHandler) {
+  activeList.addEventListener("click", function (e) {
+    const target = e.target.closest(".active-list-item");
+
+    editRemoveHide();
+
+    if (e.target.closest(".remove")) {
+      deleteHandler(+target.dataset.id);
+    }
+    if (e.target.closest(".done")) {
+      doneHandler(+target.dataset.id);
+    }
+    if (e.target.closest(".edit")) {
+      editHnadler(+target.dataset.id, target);
+    }
+    if (e.target.closest(".edit-remove-toggle")) {
+      editRemoveToggle(target);
+    }
+  });
 }
 
-function tasksListCalCallback(e) {
-  const target = e.target.closest(".active-list-item");
-  editRemoveHide();
-  if (e.target.closest(".remove")) {
-    this.removeFunction(+target.dataset.id);
-    activeTasksUpdateUI();
-  }
-  if (e.target.closest(".edit-remove-toggle")) {
-    editRemoveToggle(target);
-  }
-  if (e.target.closest(".edit")) {
-    this.editFunction(target.dataset.id);
-  }
-  if (e.target.closest(".done")) {
-    this.doneFunction(target.dataset.id);
-  }
-}
-
-export function activeTasksUpdateUI() {
+export function activeTasksUpdateUI(tasks) {
   activeList.innerHTML = "";
-  state.tasks.forEach((task) =>
+  tasks.forEach((task) =>
     document
       .getElementById("active-tasks-list")
-      .insertAdjacentHTML("beforeend", taskHtmlBuilder(task)),
+      .insertAdjacentHTML("beforeend", taskMarkup(task)),
   );
 }
 
-// Edit remove box toggle
+// Edit|Remove box toggle
 const editRemoveToggle = (target) => {
   const btnToggle = target.getElementsByClassName("edit-remove-container")[0];
   btnToggle.style.display =
@@ -78,7 +64,7 @@ function taskHtmlBuilder(task) {
             </div>
           </div>
 
-          <div id="task-actions" class="flex flex-col">
+          <div class="task-actions flex flex-col">
             <button class="edit-remove-toggle self-end mt-1 text-buttonlight">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <circle cx="12" cy="5" r="2" />

@@ -4,22 +4,33 @@ import "./views/themeToggleView";
 import "./views/editRemoveToggleView";
 import "./views/TagsToggle";
 import "./views/AddingTaskToggleView";
+import * as activeTaskVeiw from "./views/activeTasksView";
+import * as editTaskView from "./views/editTaskView";
 import { addTask } from "./views/AddTask";
-import { addHandlerActiveTasks } from "./views/activeTasksView";
-import { activeTasksUpdateUI } from "./views/activeTasksView";
 
-function activeTaskContoller() {
-  addHandlerActiveTasks(model.deleteTask, null, null, model.state.tasks);
+activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
+
+function controllDeleteTask(id) {
+  model.deleteTask(id);
+  activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
 }
 
-function controlAddTask (task) {
-  model.addNewTask(task)
+function controllEditTask(id, target) {
+  const editTask = model.findEditTaskObj(id);
+  editTaskView.loadEditForm(editTask, target, controllSubmitEdit);
+}
+
+function controllSubmitEdit(editTask, data, target) {
+  model.editTask(editTask, data);
+  editTaskView.updateEditedTaskUI(target, editTask);
+}
+function controlAddTask(task) {
+  model.addNewTask(task);
   activeTasksUpdateUI();
 }
 
 function init() {
-  activeTaskContoller();
-  activeTasksUpdateUI();
+  activeTaskVeiw.addHandlerActiveTasks(controllDeleteTask, controllEditTask);
   addTask(controlAddTask);
 }
 init();

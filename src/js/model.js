@@ -23,12 +23,11 @@ export const findEditTaskObj = function (id) {
   }
 };
 
-export const editTask = function ({ title, description, priority }) {
-  title && (state.editingTask.title = title);
-  description && (state.editingTask.description = description);
-  priority && (state.editingTask.priority = priority);
+export const editTask = function (editTask, { title, description, priority }) {
+  title && (editTask.title = title);
+  description && (editTask.description = description);
+  priority && (editTask.priority = priority);
 
-  state.editingTask = null;
   persistTasks();
 };
 
