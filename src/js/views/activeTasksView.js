@@ -18,6 +18,9 @@ export function addHandlerActiveTasks(deleteHandler, editHnadler, doneHandler) {
     if (e.target.closest(".edit-remove-toggle")) {
       editRemoveToggle(target);
     }
+    if (e.target.closest(".isDone")) {
+      doneHandler(target.dataset.id);
+    }
   });
 }
 
@@ -56,7 +59,7 @@ export function taskMarkup(task) {
   return `<li data-id="${task.id}" class="active-list-item relative flex justify-between items-start bg-bg-card p-4 card-border rounded-xl">
           <div class="flex-1 py-3 pr-4 text-right">
             <div class="flex items-center gap-2 text-right">
-              <input type="checkbox" class="self-start ml-2 checkbox-border rounded-[5px] w-5 h-5">
+              <input type="checkbox" class="isDone self-start ml-2 checkbox-border rounded-[5px] w-5 h-5">
               <div>
                 <span class="block md:inline pl-2 font-bold text-heading text-sm">${task.title}</span>
               ${priorityBadge}
