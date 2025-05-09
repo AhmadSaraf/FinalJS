@@ -1,10 +1,12 @@
 import { addHandlerTasks } from "./addHandlerTasks";
 // import { tasksUpdateUI } from "./TasksUpdateUI";
 
+
 const activeList = document.getElementById("active-tasks-list");
 export function addHandlerActiveTasks(deleteHandler, editHandler, doneHandler) {
   addHandlerTasks(activeList, deleteHandler, editHandler, doneHandler);
 };
+
 
 export function activeTasksUpdateUI(tasks) {
   activeList.innerHTML = "";

@@ -39,6 +39,13 @@ function controlUpdateIsDone(id) {
   doneTasksView.doneTasksUpdateUI(model.state.tasks.done);
 }
 
+function controlUpdateIsDone(id) {
+  model.taskToggleDone(id);
+  console.log(model.state.tasks);
+  activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
+  // doneTaskView.updateUI(model.state.tasks);
+}
+
 function init() {
   activeTasksVeiw.addHandlerActiveTasks(controllDeleteTask, controllEditTask, controlUpdateIsDone);
   addTask(controlAddTask);
