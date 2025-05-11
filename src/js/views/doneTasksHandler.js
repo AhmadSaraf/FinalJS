@@ -10,7 +10,7 @@ export function doneTasksUpdateUI(tasks) {
   tasksUpdateUI(doneList, "afterbegin", tasks, taskMarkup);
 }
 export function taskMarkup(task) {
-  return `<li data-id="${task.id}" class="list-items relative flex justify-between items-start bg-bg-card p-4 card-border rounded-xl">
+  return `<li data-id="${task.id}" class="list-items relative flex justify-between items-start bg-bg-card p-4 tasks-border rounded-xl">
           <div class="flex-1 py-3 pr-4 text-right">
             <div class="flex items-center gap-2 text-right">
               <svg role="checkbox" aria-checked="true" class="isDone cursor-pointer fill-blue w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
