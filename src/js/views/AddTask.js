@@ -27,6 +27,7 @@ const setPriority = () => {
 export const addTask = (controlAddTask) => {
   setPriority();
   const addNewTaskBtn = document.getElementById("addTaskBtn");
+
   addNewTaskBtn.addEventListener("click", (e) => {
     const titleInput = document.getElementById("task-title");
     const descriptionInput = document.getElementById("task-description");
