@@ -1,54 +1,67 @@
 import * as model from "./model";
 import "./views/sidebarToggleView";
 import "./views/themeToggleView";
-// import "./views/editRemoveToggleView";
 import "./views/TagsToggle";
 import "./views/AddingTaskToggleView";
-import * as activeTasksVeiw from "./views/activeTasksView";
-import * as doneTasksView from "./views/DoneTasksView";
-import * as editTaskView from "./views/editTaskView";
+import * as activeTasksHandler from "./views/activeTasksHandler";
+import * as doneTasksHandler from "./views/doneTasksHandler";
+import * as editTaskHandler from "./views/editTaskHandler";
 import { addTask } from "./views/AddTask";
+import { tasksOverview } from "./views/taksOverviewView";
+import { imgPlaceHolder } from "./views/imgTasksPlaceholderView";
 
-activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
-doneTasksView.doneTasksUpdateUI(model.state.tasks.done);
+function controlAddTask(task) {
+  model.addNewTask(task);
+  activeTasksHandler.activeTasksUpdateUI(model.state.tasks.active);
+  tasksOverview(model.state.tasks.active.length, model.state.tasks.done.length);
+  controllImgPlaceholder();
+}
 
 function controllDeleteTask(id) {
   model.deleteTask(id);
-  activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
-  doneTasksView.doneTasksUpdateUI(model.state.tasks.done);
+  activeTasksHandler.activeTasksUpdateUI(model.state.tasks.active);
+  doneTasksHandler.doneTasksUpdateUI(model.state.tasks.done);
+  tasksOverview(model.state.tasks.active.length, model.state.tasks.done.length);
+  controllImgPlaceholder();
 }
 
 function controllEditTask(id, target) {
   const editTask = model.findEditTaskObj(id);
-  editTaskView.loadEditForm(editTask, target, controllSubmitEdit);
+  editTaskHandler.loadEditForm(editTask, target, controllSubmitEdit);
 }
-
 function controllSubmitEdit(editTask, data, target) {
   model.editTask(editTask, data);
-  editTaskView.updateEditedTaskUI(target, editTask);
-}
-function controlAddTask(task) {
-  model.addNewTask(task);
-  activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
+  editTaskHandler.updateEditedTaskUI(target, editTask);
 }
 
 function controlUpdateIsDone(id) {
   model.taskToggleDone(id);
-  console.log(model.state.tasks);
-  activeTasksVeiw.activeTasksUpdateUI(model.state.tasks.active);
-  doneTasksView.doneTasksUpdateUI(model.state.tasks.done);
+  activeTasksHandler.activeTasksUpdateUI(model.state.tasks.active);
+  doneTasksHandler.doneTasksUpdateUI(model.state.tasks.done);
+  tasksOverview(model.state.tasks.active.length, model.state.tasks.done.length);
+  controllImgPlaceholder();
 }
 
-function controlUpdateIsDone(id) {
-  model.taskToggleDone(id);
-  console.log(model.state.tasks);
-  activeTaskVeiw.activeTasksUpdateUI(model.state.tasks);
-  // doneTaskView.updateUI(model.state.tasks);
+function controllImgPlaceholder() {
+  imgPlaceHolder(model.state.tasks.active.length === 0);
 }
 
 function init() {
-  activeTasksVeiw.addHandlerActiveTasks(controllDeleteTask, controllEditTask, controlUpdateIsDone);
+  activeTasksHandler.activeTasksUpdateUI(model.state.tasks.active);
+  doneTasksHandler.doneTasksUpdateUI(model.state.tasks.done);
+  tasksOverview(model.state.tasks.active.length, model.state.tasks.done.length);
+  controllImgPlaceholder();
+
+  activeTasksHandler.addHandlerActiveTasks(
+    controllDeleteTask,
+    controllEditTask,
+    controlUpdateIsDone,
+  );
   addTask(controlAddTask);
-  doneTasksView.addHandlerDoneTasks(controllDeleteTask, controllEditTask , controlUpdateIsDone);
+  doneTasksHandler.addHandlerDoneTasks(
+    controllDeleteTask,
+    controllEditTask,
+    controlUpdateIsDone,
+  );
 }
 init();

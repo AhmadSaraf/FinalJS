@@ -1,8 +1,6 @@
-
-export function tasksUpdateUI(parent, tasks, taskMarkup) {
+export function tasksUpdateUI(parent, location, tasks, taskMarkup) {
   parent.innerHTML = "";
-  console.log(tasks);
   tasks.forEach((task) =>
-    parent.insertAdjacentHTML("beforebegin", taskMarkup(task)),
+    parent.insertAdjacentHTML(location, taskMarkup(task)),
   );
 }
