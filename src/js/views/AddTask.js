@@ -11,13 +11,13 @@ const setPriority = () => {
     if (!selectPriority) return;
     if (selectPriority === 1)
       btnToggle.innerHTML =
-        '<div class="bg-bg-redbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="../../public/icons/close-circle.svg" alt="close icon" /><span class="text-red">بالا</span></div>';
+        '<div class="bg-bg-redbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="./public/icons/close-circle.svg" alt="close icon" /><span class="text-red">بالا</span></div>';
     if (selectPriority === 2)
       btnToggle.innerHTML =
-        '<div class="bg-bg-yellowbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="../../public/icons/close-circle.svg" alt="close icon" /><span class="text-yellow">متوسط</span></div>';
+        '<div class="bg-bg-yellowbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="./public/icons/close-circle.svg" alt="close icon" /><span class="text-yellow">متوسط</span></div>';
     if (selectPriority === 3)
       btnToggle.innerHTML =
-        '<div class="bg-bg-greenbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="../../public/icons/close-circle.svg" alt="close icon" /><span class="text-green">پایین</span></div>';
+        '<div class="bg-bg-greenbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="./public/icons/close-circle.svg" alt="close icon" /><span class="text-green">پایین</span></div>';
 
     btnContainer.classList.add("hidden");
     btnContainer.classList.remove("flex");

@@ -50,13 +50,13 @@ function priorityContainerToggle(target) {
 function changePriorityUI(target, priority) {
   if (priority === 1)
     target.querySelector(".tags-menu").innerHTML =
-      `<div class="bg-bg-redbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2 items-center"><img class="w-5 h-5 dark:brightness-100000" src="../../public/icons/close-circle.svg" alt="close icon" /><span class="text-red self-center grow">بالا</span></div>`;
+      `<div class="bg-bg-redbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2 items-center"><img class="w-5 h-5 dark:brightness-100000" src="./public/icons/close-circle.svg" alt="close icon" /><span class="text-red self-center grow">بالا</span></div>`;
   if (priority === 2)
     target.querySelector(".tags-menu").innerHTML =
-      '<div class="bg-bg-yellowbox px-2 py-1 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="../../public/icons/close-circle.svg" alt="close icon" /><span class="text-yellow">متوسط</span></div>';
+      '<div class="bg-bg-yellowbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2 items-center"><img class="w-5 h-5 dark:brightness-100000" src="./public/icons/close-circle.svg" alt="close icon" /><span class="text-yellow">متوسط</span></div>';
   if (priority === 3)
     target.querySelector(".tags-menu").innerHTML =
-      '<div class="bg-bg-greenbox px-2 py-1 rounded text-sm font-semibold flex gap-2"><img class="w-5 h-5 dark:brightness-100000" src="../../public/icons/close-circle.svg" alt="close icon" /><span class="text-green">پایین</span></div>';
+      '<div class="bg-bg-greenbox px-2 py-1.5 rounded text-sm font-semibold flex gap-2 items-center"><img class="w-5 h-5 dark:brightness-100000" src="./public/icons/close-circle.svg" alt="close icon" /><span class="text-green">پایین</span></div>';
 }
 
 export function updateEditedTaskUI(target, task) {
