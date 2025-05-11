@@ -1,29 +1,26 @@
 const addDutyBtn = document.getElementById("addingTaskToggle");
 const addTaskForm = document.getElementById("addTaskForm");
 
-const addTaskToggle = (e) => {
-  [addDutyBtn, addTaskForm].forEach((el) => {
-    el.classList.toggle("hidden");
-    el.classList.toggle("flex");
-  });
-  setTimeout(() => document.addEventListener("click", closeAddTaskForm), 100);
-};
-
-// prettier-ignor
 addDutyBtn.addEventListener("click", addTaskToggle);
 addTaskForm
   .querySelector("#addTaskBtn")
   .addEventListener("click", addTaskToggle);
 
+function addTaskToggle() {
+  [addDutyBtn, addTaskForm].forEach((el) => {
+    el.classList.toggle("hidden");
+    el.classList.toggle("flex");
+    document.removeEventListener("click", closeAddTaskForm);
+  });
+  setTimeout(() => document.addEventListener("click", closeAddTaskForm), 100);
+}
+
 export function closeAddTaskForm(e) {
-  if (addTaskForm.classList.contains("hidden")) {
-    return this.removeEventListener("click", closeAddTaskForm);
-  }
   if (!e.target.closest("#addTaskForm")) {
-    [addDutyBtn, addTaskForm].forEach((el) => {
-      el.classList.toggle("hidden");
-      el.classList.toggle("flex");
-    });
-    this.removeEventListener("click", closeAddTaskForm);
+    addTaskForm.classList.remove("flex");
+    addTaskForm.classList.add("hidden");
+    addDutyBtn.classList.remove("hidden");
+    addDutyBtn.classList.add("flex");
+    document.removeEventListener("click", closeAddTaskForm);
   }
 }

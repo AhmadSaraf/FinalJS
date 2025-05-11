@@ -26,10 +26,10 @@ export function taskMarkup(task) {
           <div class="flex-1 py-3 pr-4 text-right">
             <div class="flex items-center gap-2 text-right">
               <input type="checkbox" class="isDone self-start ml-2 checkbox-border bg-transparent appearance-none rounded-[5px] w-5 h-5  cursor-pointer">
-              <div>
+              <div class="gap-1">
                 <span class="block md:inline pl-2 font-bold text-heading text-base">${task.title}</span>
               ${priorityBadge}
-                <p class="mt-3 text-taskGray text-sm">${task.description}</p>
+                <p class="mt-2 text-taskGray text-sm">${task.description}</p>
               </div>
             </div>
           </div>
