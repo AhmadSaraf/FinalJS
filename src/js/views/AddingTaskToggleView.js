@@ -15,7 +15,10 @@ addTaskForm
   .querySelector("#addTaskBtn")
   .addEventListener("click", addTaskToggle);
 
-function closeAddTaskForm(e) {
+export function closeAddTaskForm(e) {
+  if (addTaskForm.classList.contains("hidden")) {
+    return this.removeEventListener("click", closeAddTaskForm);
+  }
   if (!e.target.closest("#addTaskForm")) {
     [addDutyBtn, addTaskForm].forEach((el) => {
       el.classList.toggle("hidden");

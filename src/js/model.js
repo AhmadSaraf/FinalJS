@@ -34,7 +34,6 @@ export const editTask = function (editTask, { title, description, priority }) {
 
 export const taskToggleDone = function (id) {
   try {
-    console.log("h");
     let task = null;
     if (id[0] === "A") {
       task = state.tasks.active.find((task) => task.id === id);
@@ -48,7 +47,6 @@ export const taskToggleDone = function (id) {
       task.id = "A" + task.id.slice(1);
       state.tasks.active.push(task);
     }
-    console.log(state.tasks);
     if (!task) throw new Error("DEV: wrong ID");
     deleteTask(id);
 
