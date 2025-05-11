@@ -6,7 +6,6 @@ export function addHandlerTasks(
   editHandler,
   doneHandler,
 ) {
-  console.log(container);
   container.addEventListener("click", function (e) {
     const target = e.target.closest(".list-items");
     editRemove.editRemoveHide(container);
@@ -22,7 +21,6 @@ export function addHandlerTasks(
     }
     if (e.target.closest(".edit-remove-toggle")) {
       editRemove.editRemoveToggle(target);
-      console.log(container);
     }
     if (e.target.closest(".isDone")) {
       doneHandler(target.dataset.id);

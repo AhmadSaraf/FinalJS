@@ -1,16 +1,26 @@
 const addDutyBtn = document.getElementById("addingTaskToggle");
+const addTaskForm = document.getElementById("addTaskForm");
 
-const addTaskToggle = () => {
-  const addTaskForm = document.getElementById('addTaskForm');
-  // [addDutyBtn, addTaskForm].forEach(el => el.classList.toggle('none'))
-
-  // // Get computed styles for both elements
-  const btnCurrentDisplay = window.getComputedStyle(addDutyBtn).display;
-  const formCurrentDisplay = window.getComputedStyle(addTaskForm).display;
-
-  // Toggle both elements
-  addDutyBtn.style.display = btnCurrentDisplay === "flex" ? "none" : "flex";
-  addTaskForm.style.display = formCurrentDisplay === "none" ? "flex" : "none";
+const addTaskToggle = (e) => {
+  [addDutyBtn, addTaskForm].forEach((el) => {
+    el.classList.toggle("hidden");
+    el.classList.toggle("flex");
+  });
+  setTimeout(() => document.addEventListener("click", closeAddTaskForm), 100);
 };
 
+// prettier-ignor
 addDutyBtn.addEventListener("click", addTaskToggle);
+addTaskForm
+  .querySelector("#addTaskBtn")
+  .addEventListener("click", addTaskToggle);
+
+function closeAddTaskForm(e) {
+  if (!e.target.closest("#addTaskForm")) {
+    [addDutyBtn, addTaskForm].forEach((el) => {
+      el.classList.toggle("hidden");
+      el.classList.toggle("flex");
+    });
+    this.removeEventListener("click", closeAddTaskForm);
+  }
+}

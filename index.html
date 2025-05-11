@@ -1,28 +1,25 @@
 <!doctype html>
 <html lang="fa-IR" dir="rtl">
-  <!-- <html lang="fa-IR" dir="rtl" class="dark"> -->
-
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <link rel="icon" type="image" href="./public/quera-list-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/styles.css" />
     <script type="module" src="./src/js/controler.js" defer></script>
-    <!--    <script type="module" src="/src/main.js" defer></script>-->
     <title>Task List</title>
   </head>
 
   <body
-    class="relative flex md:flex-row flex-col justify-center items-center bg-background-mobile md:bg-background-desktop w-full font-yekan"
+    class="bg-background-mobile md:bg-background-desktop font-yekan relative flex w-full flex-col justify-center md:flex-row"
   >
     <!------------------------------>
     <!-- mobile header -->
     <!------------------------------>
-    <header class="md:hidden mx-auto mb-10 md:mb-0 pt-4 w-9/10">
+    <header class="mx-auto mb-10 w-9/10 pt-4 md:mb-0 md:hidden">
       <nav
-        class="flex justify-between bg-bg-card shadow-cardShadow mb-4 p-6 rounded-lg"
+        class="bg-bg-card shadow-cardShadow mb-4 flex justify-between rounded-lg p-6"
       >
-        <button id="sidebar-open-btn" class="w-6 h-6">
+        <button id="sidebar-open-btn" class="h-6 w-6">
           <!-- prettier-ignore -->
           <svg class="fill-none stroke-[1.5] stroke-icon-exit w-6 h-6" viewBox="0 0 24 25"
           xmlns="http://www.w3.org/2000/svg">
@@ -32,22 +29,22 @@
         </svg>
           <!-- Prettier resumes formatting here -->
         </button>
-        <div class="font-bold text-heading">
+        <div class="text-heading font-bold">
           <h1>کوئرا لیست</h1>
         </div>
         <div class="w-6"></div>
       </nav>
       <div
-        class="pb-[27.5px] border-[#F5F6F8] dark:border-transparent border-b-2"
+        class="border-b-2 border-[#F5F6F8] pb-[27.5px] dark:border-transparent"
       >
         <div class="flex items-center gap-3">
           <img
-            class="rounded-full w-14 h-14 object-cover"
+            class="h-14 w-14 rounded-full object-cover"
             src="./public/images/avatar1.png"
             alt="User's avatar"
           />
           <div class="flex flex-col justify-center gap-[3px]">
-            <h4 class="font-extrabold text-heading text-lg">سلام، رویا</h4>
+            <h4 class="text-heading text-lg font-extrabold">سلام، رویا</h4>
             <time class="text-dateGray text-sm" datetime=""
               >امروز، سه‌شنبه، ۵ بهمن ۱۴۰۲
             </time>
@@ -61,12 +58,12 @@
     <!------------------------------>
     <aside
       id="sidebar"
-      class="top-0 right-0 z-2 md:static absolute flex flex-col bg-bg-card md:shadow-sideShadow md:m-5 p-3 md:rounded-2xl w-75/100 md:w-1/5 md:min-w-72 h-dvh md:h-min md:min-h-(--sidebar-height) text-sidebar transition-transform translate-x-full md:translate-x-0 duration-500 ease-in-out"
+      class="bg-bg-card md:shadow-sideShadow text-sidebar absolute top-0 right-0 z-2 flex h-dvh w-75/100 translate-x-full flex-col p-3 transition-transform duration-500 ease-in-out md:static md:m-5 md:h-min md:min-h-(--sidebar-height) md:w-1/5 md:min-w-72 md:translate-x-0 md:rounded-2xl"
     >
       <header>
         <!-- moblile header -->
-        <div class="md:hidden flex justify-between mb-8 py-3 pr-3">
-          <h1 class="font-bold text-heading">کوئرا لیست</h1>
+        <div class="mb-8 flex justify-between py-3 pr-3 md:hidden">
+          <h1 class="text-heading font-bold">کوئرا لیست</h1>
           <button id="sidebar-close-btn">
             <!-- prettier-ignore -->
             <svg class="fill-none stroke-[1.5] stroke-icon-exit w-7 h-7" viewBox="0 0 24 24"
@@ -77,25 +74,25 @@
           </button>
         </div>
         <!-- desktop header -->
-        <div class="hidden md:flex items-center gap-3 mt-11 mb-18 pr-5">
+        <div class="mt-11 mb-18 hidden items-center gap-3 pr-5 md:flex">
           <img
-            class="rounded-full w-14 min-w-14 h-14 min-h-14 object-cover"
+            class="h-14 min-h-14 w-14 min-w-14 rounded-full object-cover"
             src="./public/images/avatar1.png"
             alt="User's avatar"
           />
           <div class="flex flex-col justify-center gap-[3px]">
-            <h4 class="font-extrabold text-heading text-lg">سلام، رویا</h4>
+            <h4 class="text-heading text-lg font-extrabold">سلام، رویا</h4>
             <time class="text-dateGray text-sm" datetime=""
               >امروز، سه‌شنبه، ۵ بهمن ۱۴۰۲
             </time>
           </div>
         </div>
       </header>
-      <main class="flex flex-col gap-7 grow">
-        <ul class="flex flex-col gap-6 mb-6">
+      <section class="flex grow flex-col gap-7">
+        <ul class="mb-6 flex flex-col gap-6">
           <li>
             <a
-              class="flex items-center gap-4 bg-[#F5FAFF] dark:bg-[#041933] px-5 py-3 rounded-lg"
+              class="flex items-center gap-4 rounded-lg bg-[#F5FAFF] px-5 py-3 dark:bg-[#041933]"
               href="#"
             >
               <!-- prettier-ignore -->
@@ -106,7 +103,7 @@
                 fill-opacity="1.000000" fill-rule="nonzero" />
               <g opacity="0.000000" />
             </svg>
-              <span class="font-bold text-icon-blue text-base/tight">خانه</span>
+              <span class="text-icon-blue text-base/tight font-bold">خانه</span>
             </a>
           </li>
           <li>
@@ -232,49 +229,47 @@
         </ul>
         <div class="mx-5 mt-auto mb-5">
           <!-- dark\light buttons -->
-          <div
-            class="relative gap-2 grid grid-cols-2 bg-[#F7F7F7] dark:bg-[#0C1B31] mb-7 p-2 rounded-lg"
+          <button
+            class="theme-toggle relative mb-7 grid w-full cursor-pointer grid-cols-2 gap-2 rounded-lg bg-[#F7F7F7] p-2 dark:bg-[#0C1B31]"
           >
-            <button
-              class="z-20 flex justify-center gap-3 py-1.5 text-buttonlight cursor-pointer theme-toggle"
-            >
+            <!-- light -->
+            <div class="text-buttonlight z-20 flex justify-center gap-3 py-1.5">
               <!-- prettier-ignore -->
               <svg class="fill-none stroke-buttonlight w-4 h-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-              <path id="Vector"
+                <path id="Vector"
                 d="M7.99 12.33C5.6 12.33 3.66 10.39 3.66 8C3.66 5.6 5.6 3.66 7.99 3.66C10.39 3.66 12.33 5.6 12.33 8C12.33 10.39 10.39 12.33 7.99 12.33Z"
                 stroke-width="1.166667" stroke-linejoin="round" />
-              <path id="Vector"
+                <path id="Vector"
                 d="M12.75 3.23L12.67 3.32L12.75 3.23ZM3.32 12.67L3.23 12.75L3.32 12.67ZM8 1.33L8 1.38L8 1.33ZM8 14.61L8 14.66L8 14.61ZM1.33 7.99L1.38 7.99L1.33 7.99ZM14.61 7.99L14.66 7.99L14.61 7.99ZM3.23 3.23L3.32 3.32L3.23 3.23ZM12.75 12.75L12.67 12.67"
                 stroke-width="1.555556" stroke-linejoin="round" stroke-linecap="round" />
-              <g opacity="0.000000">
+                <g opacity="0.000000">
                 <path id="Vector" d="M0 16L16 16L16 0L0 0L0 16ZM15.22 0.77L15.22 15.22L0.77 15.22L0.77 0.77L15.22 0.77Z"
                   fill="#525252" fill-rule="evenodd" />
-              </g>
-            </svg>
+                </g>
+              </svg>
               <span class="text-base/tight">روشن</span>
-            </button>
-            <button
-              class="z-20 flex justify-center gap-3 py-1.5 text-buttondark cursor-pointer theme-toggle"
-            >
+            </div>
+            <!-- dark -->
+            <div class="text-buttondark z-20 flex justify-center gap-3 py-1.5">
               <!-- prettier-ignore -->
               <svg class="fill-none stroke-1 stroke-buttondark w-4 h-4" viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg">
               <path id="Vector"
                 d="M7.99 14.66C10.45 14.76 12.65 13.62 13.97 11.81C14.52 11.07 14.22 10.58 13.31 10.74C12.86 10.82 12.4 10.86 11.92 10.84C8.66 10.7 6 7.97 5.98 4.76C5.98 3.89 6.16 3.07 6.48 2.32C6.84 1.5 6.41 1.1 5.58 1.45C2.94 2.57 1.13 5.23 1.35 8.28C1.59 11.71 4.5 14.5 7.99 14.66Z"
                 stroke-linejoin="round" />
-            </svg>
+              </svg>
               <span class="text-base/tight">تاریک</span>
-            </button>
+            </div>
             <div
-              class="top-0 right-0 absolute p-1 w-1/2 h-full transition-transform dark:-translate-x-full duration-500 ease-in-out"
+              class="absolute top-0 right-0 h-full w-1/2 p-1 transition-transform duration-500 ease-in-out dark:-translate-x-full"
             >
               <div
-                class="z-10 bg-white dark:bg-[#002247] rounded-md h-full transition-colors duration-500 ease-in-out"
+                class="z-10 h-full rounded-md bg-white transition-colors duration-500 ease-in-out dark:bg-[#002247]"
               ></div>
             </div>
-          </div>
+          </button>
           <!-- seperator -->
-          <div class="bg-[#F5F6F8] dark:bg-[#2F3132] mb-5 w-full h-0.5"></div>
+          <div class="mb-5 h-0.5 w-full bg-[#F5F6F8] dark:bg-[#2F3132]"></div>
           <!-- log out -->
           <a class="flex items-center gap-4 py-2" href="#">
             <!-- prettier-ignore -->
@@ -290,76 +285,96 @@
             <span class="text-base/tight">خروج</span>
           </a>
         </div>
-      </main>
+      </section>
     </aside>
     <!-- overlay -->
     <div
       id="overlay"
-      class="invisible top-0 right-0 z-1 absolute bg-[#00000066] opacity-0 mb-10 w-full h-dvh transition-all duration-500 ease-in-out pointer-events-none"
+      class="pointer-events-none invisible absolute top-0 right-0 z-1 mb-10 h-dvh w-full bg-[#00000066] opacity-0 transition-all duration-500 ease-in-out"
     ></div>
 
-    <main class="flex flex-col justify-around items-center w-full text-right">
+    <main
+      class="flex w-full flex-col items-center justify-start gap-8 text-right md:mt-24 md:gap-16"
+    >
       <!------------------------------>
       <!--  tasks   -->
       <!------------------------------>
       <section id="active-tasks" class="w-9/10 md:w-7/10">
         <h2
-          class="mb-6 font-yekan font-extrabold text-heading text-base md:text-xl"
+          class="font-yekan text-heading mb-6 text-base font-extrabold md:text-xl"
         >
           تسک های امروز
         </h2>
-        <p id="active-tasks-num" class="font-normal text-gray text-sm"></p>
+        <p id="active-tasks-num" class="text-gray mb-4 text-sm font-normal"></p>
 
         <!--   Add Task   -->
-        <form id="addTaskForm" class="hidden flex-col card-border rounded-xl">
-          <div id="input-container" class="card-border border-b">
-            <div id="inputs" class="p-4">
+        <form
+          id="addTaskForm"
+          novalidate
+          class="card-border mb-4 hidden flex-col rounded-xl"
+        >
+          <div id="input-container" class="border-border-addTaskForm border-b">
+            <div id="inputs" class="text-task p-4">
               <input
                 type="text"
+                spellcheck="false"
                 id="task-title"
+                name="task-title"
                 placeholder="نام تسک"
-                class="mb-2 w-full placeholder:font-bold placeholder:text-boldGray placeholder:text-base"
+                class="placeholder:text-boldGray mb-2 w-full bg-transparent text-base font-bold outline-0 placeholder:text-base placeholder:font-bold"
                 required
               />
-              <input
-                type="text"
+              <textarea
+                rows="3"
+                spellcheck="false"
                 id="task-description"
+                name="task-description"
                 placeholder="توضیحات"
-                class="w-full placeholder:font-semibold placeholder:text-lightGary placeholder:text-sm"
+                class="placeholder:text-lightGary w-full resize-none text-sm font-semibold outline-0 placeholder:text-sm placeholder:font-semibold"
                 required
-              />
+              ></textarea>
             </div>
             <button
               id="tags-menu"
               type="button"
-              class="justify-center items-center box-shadow m-4 px-2 py-1 card-border rounded-sm text-buttontag text-center"
+              class="box-shadow mx-4 mb-4 min-w-10 cursor-pointer rounded-sm text-center"
             >
-              <img
-                src="./public/icons/Vector.svg"
-                alt="tag-right"
-                class="inline"
-              />
-              تگ ها
+              <div
+                class="text-buttontag flex items-center justify-center gap-2 px-2 py-1"
+              >
+                <svg
+                  class="stroke-lightGary h-4.5 w-4.5 fill-none stroke-[1.25] transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.51661 1.58331H12.0499C12.6166 1.58331 13.325 1.97498 13.625 2.45831L17.1083 8.02498C17.4416 8.56665 17.4083 9.41665 17.025 9.92498L12.7083 15.675C12.4 16.0833 11.7333 16.4166 11.225 16.4166H2.51661C1.05828 16.4166 0.174984 14.8166 0.94165 13.575L3.24995 9.88331C3.55828 9.39165 3.55828 8.59165 3.24995 8.09998L0.94165 4.40831C0.174984 3.18331 1.06661 1.58331 2.51661 1.58331Z"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>تگ ها</span>
+              </div>
             </button>
             <div
               id="tag-btns-container"
-              class="hidden gap-4 bg-bg-tagbtn btn-shadow m-4 p-2 btn-border rounded-lg w-fit"
+              class="bg-bg-tagbtn btn-shadow btn-border m-4 hidden w-fit gap-4 rounded-lg p-2"
             >
               <span
                 id="lowPriority"
-                class="bg-bg-greenbox px-2 py-0.5 rounded font-bold text-green text-xs"
+                class="bg-bg-greenbox text-green cursor-pointer rounded px-2 py-0.5 text-xs font-bold"
                 >پایین</span
               >
               <img src="./public/icons/Line 485.svg" alt="line" />
               <span
                 id="mediumPriority"
-                class="bg-bg-yellowbox px-2 py-0.5 rounded font-bold text-yellow text-xs"
+                class="bg-bg-yellowbox text-yellow cursor-pointer rounded px-2 py-0.5 text-xs font-bold"
                 >متوسط</span
               >
               <img src="./public/icons/Line 485.svg" alt="line" />
               <span
                 id="highPriority"
-                class="bg-bg-redbox px-2 py-0.5 rounded font-bold text-red text-xs"
+                class="bg-bg-redbox text-red cursor-pointer rounded px-2 py-0.5 text-xs font-bold"
                 >بالا</span
               >
             </div>
@@ -367,7 +382,8 @@
           <div class="m-4 text-left">
             <button
               id="addTaskBtn"
-              class="bg-button-blue px-4 py-2.5 rounded-md font-semibold text-white text-sm"
+              type="button"
+              class="bg-button-blue cursor-pointer rounded-md px-4 py-2.5 text-sm font-semibold text-white"
             >
               اضافه کردن تسک
             </button>
@@ -377,28 +393,30 @@
         <div id="addTaskContainer" class="flex flex-col gap-4">
           <button
             id="addingTaskToggle"
-            class="flex gap-4 py-4 pr-4 border border-gray-300 border-dashed rounded-[10px] w-full font-yekan font-bold text-blue text-sm md:text-base text-right"
+            class="font-yekan text-blue border-border-addTask flex w-full cursor-pointer gap-4 rounded-[10px] border border-dashed py-4 pr-4 text-right text-sm font-bold md:text-base"
           >
             <img src="./public/icons/vuesax_linear_add.svg" alt="add" />
             افزودن وظیفه جدید
           </button>
-          <ul id="active-tasks-list" class="gap-4 cardBorder">
+          <ul id="active-tasks-list" class="cardBorder flex flex-col gap-4">
             <!-- Template Task list -->
           </ul>
         </div>
 
+        <!-- hidden if we have active tasks -->
         <div
-          class="flex flex-col justify-center items-center mb-10 text-center"
+          id="image-placeholder"
+          class="flex flex-col items-center justify-center text-center"
         >
           <img
             src="./public/images/artboard.png"
             alt="task-img"
-            class="opacity-50 w-[283px] max-h-[232px] object-cover overflow-hidden"
+            class="max-h-[232px] w-[283px] overflow-hidden object-cover opacity-50"
           />
-          <h2 class="font-extrabold text-boldGray text-base">
+          <h2 class="text-boldGray text-base font-extrabold">
             چه کارهایی امروز برای انجام داری؟
           </h2>
-          <p class="font-semibold text-lightGary text-sm">
+          <p class="text-lightGary text-sm font-semibold">
             میتونی الان تسک‌هاتو اینجا بنویسی و برنامه ریزی رو شروع کنی!
           </p>
         </div>
@@ -409,12 +427,12 @@
       <!------------------------------>
       <section id="done-tasks" class="w-9/10 md:w-7/10">
         <h2
-          class="mb-6 font-yekan font-extrabold text-heading text-base md:text-xl"
+          class="font-yekan text-heading mb-6 text-base font-extrabold md:text-xl"
         >
           تسک‌های انجام شده
         </h2>
-        <p id="done-tasks-num" class="font-normal text-gray text-sm"></p>
-        <ul id="done-tasks-list"></ul>
+        <p id="done-tasks-num" class="text-gray mb-4 text-sm font-normal"></p>
+        <ul id="done-tasks-list" class="flex flex-col gap-4"></ul>
       </section>
     </main>
   </body>
