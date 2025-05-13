@@ -22,7 +22,7 @@ export function taskMarkup(task) {
     priorityBadge =
       '<span class="bg-bg-greenbox px-2 py-0.5 rounded text-green text-xs">پایین</span>';
   }
-  return `<li data-id="${task.id}" class="list-items relative flex justify-between items-start bg-bg-card p-4 card-border rounded-xl">
+  return `<li data-id="${task.id}" class="list-items relative flex justify-between items-start bg-bg-card p-4 tasks-border rounded-xl">
           <div class="flex-1 py-3 pr-4 text-right">
             <div class="flex items-center gap-2 text-right">
               <input type="checkbox" class="isDone self-start ml-2 checkbox-border bg-transparent appearance-none rounded-[5px] w-5 h-5  cursor-pointer">
